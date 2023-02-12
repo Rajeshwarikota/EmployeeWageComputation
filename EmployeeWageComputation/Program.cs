@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        const int isFullTime = 1;
+        const int isPartTime = 2;
+        const int empWagePerHr = 20;
+        const int empWorkinDaysPerMonth = 20;
+        const int empTotalWorkingHrs = 100;
+       public  static void Main(string[] args)
         {
             Console.WriteLine("....EMP WAGE COMPUTATION....");
-            const int isFullTime = 1;
-            const int isPartTime = 2;
-            int empWagePerHr = 20;
-            const int empWorkinDaysPerMonth = 20;
-            const int empTotalWorkingHrs = 100;
+
+            //UC7-Use Class Method and Variables
+            Program.EmpWage();
+            Console.ReadLine();
+        }
+        public static void EmpWage()
+        {
             int empHrs = 0;
             int totalEmpHrs = 0;
             int empDailyWage = 0;
             int empMontlyWage = 0;
             int totalWorkingDays = 0;
+
             //UC1- Employee Attendance
             Random random = new Random();
+            //UC6-MaxHrs
             while (totalWorkingDays < empWorkinDaysPerMonth && totalEmpHrs < empTotalWorkingHrs)
               
             {
