@@ -15,13 +15,18 @@ namespace EmployeeWageComputation
             const int isPartTime = 2;
             int empWagePerHr = 20;
             int empHrs = 0;
+            int totalEmpHrs = 0;
             int empDailyWage = 0;
+            int empMontlyWage = 0;
+            int empWorkinDaysPerMonth = 20;
             //UC1- Employee Attendance
             Random random = new Random();
-            int empAttendance = random.Next(0, 3);
-            //UC3-Add Part Time Employee
-            //UC4-Using switch case
-            switch (empAttendance)
+            for (int i = 0; i < empWorkinDaysPerMonth; i++)
+            {
+                int empAttendance = random.Next(0, 3);
+                //UC3- Add Part Time Employee
+                //UC4- Switch Case
+                switch (empAttendance)
             {
                 case isFullTime:
                     Console.WriteLine("Employee is FullTime");
@@ -35,11 +40,13 @@ namespace EmployeeWageComputation
                     Console.WriteLine("Employee is Absent");
                     break;
             }
+                totalEmpHrs += empHrs;
+            }
             //UC2- Employee Daily Wage
-            empDailyWage = empWagePerHr * empHrs;
-            Console.WriteLine("Daily Wage of Emplyoee is " + empDailyWage);
+            //UC5- Employee Monthly Wage
+            empMontlyWage = empWagePerHr * totalEmpHrs;
+            Console.WriteLine("Montly Wage of Emplyoee is " + empMontlyWage);
 
-            
             Console.ReadLine();
         }
     }
